@@ -1,1 +1,10 @@
-
+FROM ubuntu:latest
+LABEL app="nodejs"
+LABEL Developer="NirmalOmkar"
+RUN  apt update
+RUN  apt install nodejs npm -y
+RUN git clone https://github.com/owanhunte/nodejs-chat-app.git
+WORKDIR nodejs
+RUN npm install
+EXPOSE 3000
+CMD [ "npm", "start" ]
